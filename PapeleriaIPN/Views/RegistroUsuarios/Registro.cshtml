@@ -1,0 +1,52 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<form class="form" asp-action="Registro">
+    <h2 class="form_title">Iniciar Sesión</h2>
+    <p class="form_paragraph">¿Ya tienes una cuenta? <a asp-controller="InicioSesion" asp-action="Login" class="form_link">Entra aquí</a> </p>
+
+    <div class="form_container">
+
+        <div class="form_group">
+            <input type="text" asp-for="UserName" class="form_input" placeholder=" "/>
+            <label asp-for="UserName" class="form_label">Usuario:</label>
+            <span asp-validation-for="UserName" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="password" asp-for="Password" class="form_input" placeholder=" "/>
+            <label asp-for="Password" class="form_label">Contraseña:</label>
+            <span asp-validation-for="Password" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="text" asp-for="Email" class="form_input" placeholder=" "/>
+            <label asp-for="Email" class="form_label">Correo:</label>
+            <span asp-validation-for="Email" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="text" asp-for="Name" class="form_input" placeholder=" "/>
+            <label asp-for="Name" class="form_label">Nombre Completo:</label>
+            <span asp-validation-for="Name" class="form_line text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <div class="g-recaptcha" data-sitekey="6LfSNdkfAAAAAGwiW4hmeI0msE_e9CwCQ3-ShdsD"></div>
+        </div>
+
+        @if (ViewBag.Incorrecto != null)
+        {
+            <span class="text-danger">Ese nombre de usuario ya esta en uso</span>
+        }
+
+        <input type="submit" class="form_submit" value="Registrarme" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

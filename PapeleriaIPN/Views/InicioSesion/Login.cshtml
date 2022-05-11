@@ -1,0 +1,40 @@
+﻿@model UsuarioDTO
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form class="form" asp-action="Login">
+    <h2 class="form_title">Iniciar Sesión</h2>
+    <p class="form_paragraph">¿Aun no tienes una cuenta? <a asp-controller="RegistroUsuarios" asp-action="Registro" class="form_link">Entra aquí</a> </p>
+
+    <div class="form_container">
+
+        <div class="form_group">
+            <input type="text" asp-for="UserName" class="form_input" placeholder=" "/>
+            <label asp-for="UserName" class="form_label">Usuario:</label>
+            <span asp-validation-for="UserName" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="password" asp-for="Password" class="form_input" placeholder=" "/>
+            <label asp-for="Password" class="form_label">Contraseña:</label>
+            <span asp-validation-for="Password" class="form_line text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <div class="g-recaptcha" data-sitekey="6LfSNdkfAAAAAGwiW4hmeI0msE_e9CwCQ3-ShdsD"></div>
+        </div>
+
+        @if (ViewBag.Incorrecto != null)
+        {
+            <span class="text-danger">Usuario o contraseña incorrectos</span>
+        }
+
+        <input type="submit" class="form_submit" value="Entrar" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
