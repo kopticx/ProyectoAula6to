@@ -2,3 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+window.addEventListener("scroll", function () {
+    var header = this.document.querySelector("header");
+    header.classList.toggle("abajo", this.window.scrollY > 0);
+})

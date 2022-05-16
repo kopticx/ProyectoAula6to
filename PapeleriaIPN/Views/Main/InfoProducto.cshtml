@@ -1,0 +1,25 @@
+﻿@model Producto
+
+@{
+    ViewData["Title"] = Model.NombreProducto;
+}
+
+<link rel="stylesheet" href="~/css/customProduct.css" asp-append-version="true" />
+
+<nav style="margin-top: -800px;">
+    <div class="row mt-5">
+        <div class="col-lg-5 col-md-12 col-12">
+            <img class="img-fluid w-100 pb-1" src="@Model.ImagenUrl1" alt="Imagen 1 del producto"/>
+        </div>
+
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img class="small-img" src="@Model.ImagenUrl2" width="100%" alt="Imagen 2 del producto" />
+            </div>
+
+            <div class="small-img-col">
+                <img class="small-img" src="@Model.ImagenUrl3" width="100%" alt="Imagen 3 del producto" />
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Producto>
+
+@{
+}
+
+@if (Model is not null)
+{
+    <div clas="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var producto in Model)
+            {
+                <div class="col">
+                    <div class="card h-100" style="border-radius: 15px 15px; box-shadow:0 5px 5px 0 gray;">
+
+                        <img src="@producto.ImagenUrl1" class="card-img-top" alt="Imagen proyecto" style="border-radius: 15px 15px;"/>
+                        <div class="card-body">
+                            <h5 class="card-title">@producto.NombreProducto</h5>
+                        </div>
+
+                        <div class="card-footer">
+                            <a class="btn btn-primary" asp-action="InfoProducto" asp-route-id="@producto.IdProducto" rel="noopener noreferrer">Ver</a>
+                            <p class="card-text">Disponibles: @producto.Cantidad</p>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

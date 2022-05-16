@@ -6,12 +6,34 @@
     <title>@ViewData["Title"] - PapeleriaIPN</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/customMenu.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/customMenu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/customBg.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
-    
+
+    @if (ViewData["Title"] != "Login" && ViewData["Title"] != "Registro")
+    {
+        <header>
+            <a href="#" class="logo">Papeleria IPN</a>
+            <nav class="nav_menu">
+                <ul>
+                    <li><a asp-controller="Main" asp-action="Principal">Inicio</a></li>
+                    <li><a asp-controller="Main" asp-action="Productos">Productos</a></li>
+                    <li><a asp-controller="Main" asp-action="Principal">Servicios</a></li>
+                    <li><a asp-controller="Main" asp-action="Principal">Portafolio</a></li>
+                    <li><a asp-controller="Main" asp-action="Principal">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="zona1"></section>
+
+        <div class="bg_color"></div>
+        <div class="wave w1"></div>
+        <div class="wave w2"></div>
+    }
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

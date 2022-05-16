@@ -55,7 +55,7 @@ namespace PapeleriaIPN.Models
                     .HasMaxLength(1000)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ImagenUrl)
+                entity.Property(e => e.ImagenUrl1)
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
