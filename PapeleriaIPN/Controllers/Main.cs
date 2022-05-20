@@ -33,5 +33,10 @@ namespace PapeleriaIPN.Controllers
 
             return View(producto);
         }
+
+        public IActionResult Contacto()
+        {
+            return View();
+        }
     }
 }

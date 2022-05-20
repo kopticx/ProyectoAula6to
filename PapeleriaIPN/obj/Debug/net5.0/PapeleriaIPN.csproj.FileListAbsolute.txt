@@ -73,3 +73,4 @@ C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Producto.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\InfoProducto.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Productos.cshtml.g.cs
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Contacto.cshtml.g.cs

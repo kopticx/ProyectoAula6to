@@ -30,7 +30,7 @@ namespace PapeleriaIPN.Controllers
 
             if (existe)
             {
-                return Redirect("https://www.youtube.com/watch?v=JUxITamPWrY");
+                return RedirectToAction("Principal", "Main");
             }
             else
             {
