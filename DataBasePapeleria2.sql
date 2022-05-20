@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Papeleria]    Script Date: 10/05/2022 07:51:49 p. m. ******/
+/****** Object:  Database [Papeleria]    Script Date: 20/05/2022 05:32:04 a. m. ******/
 CREATE DATABASE [Papeleria]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [Papeleria] SET QUERY_STORE = OFF
 GO
 USE [Papeleria]
 GO
-/****** Object:  Table [dbo].[Pedido]    Script Date: 10/05/2022 07:51:49 p. m. ******/
+/****** Object:  Table [dbo].[Pedido]    Script Date: 20/05/2022 05:32:04 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -100,25 +100,27 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Producto]    Script Date: 10/05/2022 07:51:49 p. m. ******/
+/****** Object:  Table [dbo].[Producto]    Script Date: 20/05/2022 05:32:04 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Producto](
 	[IdProducto] [int] IDENTITY(1,1) NOT NULL,
-	[NombreProducto] [varchar](30) NULL,
-	[Descripcion] [varchar](1000) NULL,
-	[Precio] [decimal](18, 0) NULL,
-	[ImagenUrl] [varchar](500) NULL,
-	[Cantidad] [int] NULL,
-PRIMARY KEY CLUSTERED 
+	[NombreProducto] [varchar](200) NOT NULL,
+	[Descripcion] [varchar](1000) NOT NULL,
+	[Precio] [decimal](18, 2) NOT NULL,
+	[ImagenUrl1] [varchar](500) NOT NULL,
+	[Cantidad] [int] NOT NULL,
+	[ImagenUrl2] [varchar](500) NULL,
+	[ImagenUrl3] [varchar](500) NULL,
+ CONSTRAINT [PK__Producto__09889210B9E38FD3] PRIMARY KEY CLUSTERED 
 (
 	[IdProducto] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoUsuario]    Script Date: 10/05/2022 07:51:49 p. m. ******/
+/****** Object:  Table [dbo].[TipoUsuario]    Script Date: 20/05/2022 05:32:04 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,7 +134,7 @@ CREATE TABLE [dbo].[TipoUsuario](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 10/05/2022 07:51:49 p. m. ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 20/05/2022 05:32:04 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,6 +152,25 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+SET IDENTITY_INSERT [dbo].[Producto] ON 
+GO
+INSERT [dbo].[Producto] ([IdProducto], [NombreProducto], [Descripcion], [Precio], [ImagenUrl1], [Cantidad], [ImagenUrl2], [ImagenUrl3]) VALUES (1, N'Lápiz Smarty', N'
+Lápiz con Goma Triangular Punta gruesa Bolsa con 4 Piezas Smarty', CAST(16.50 AS Decimal(18, 2)), N'https://res.cloudinary.com/kopticx/image/upload/v1652530923/211657-1200-auto_neacqq.jpg', 100, NULL, NULL)
+GO
+INSERT [dbo].[Producto] ([IdProducto], [NombreProducto], [Descripcion], [Precio], [ImagenUrl1], [Cantidad], [ImagenUrl2], [ImagenUrl3]) VALUES (2, N'Cuaderno 100 hojas Smarty', N'Cuaderno Cosido de 100 Hojas Profesional de Raya Smarty Plus', CAST(42.50 AS Decimal(18, 2)), N'https://res.cloudinary.com/kopticx/image/upload/v1652531335/207599-1200-auto_lmzrnl.jpg', 200, NULL, NULL)
+GO
+INSERT [dbo].[Producto] ([IdProducto], [NombreProducto], [Descripcion], [Precio], [ImagenUrl1], [Cantidad], [ImagenUrl2], [ImagenUrl3]) VALUES (3, N'
+Bolígrafo Punto Mediano Paper Mate', N'
+Bolígrafo Punto Mediano Stick Borrable Negro Blíster con 2 Piezas Erase Mate', CAST(48.80 AS Decimal(18, 2)), N'https://res.cloudinary.com/kopticx/image/upload/c_scale,w_400/v1652531713/211350-1200-auto_dqrt4s.jpg', 40, NULL, NULL)
+GO
+INSERT [dbo].[Producto] ([IdProducto], [NombreProducto], [Descripcion], [Precio], [ImagenUrl1], [Cantidad], [ImagenUrl2], [ImagenUrl3]) VALUES (4, N'Calculadora Científica Casio', N'Calculadora Científica de con 552 Funciones Casio', CAST(573.00 AS Decimal(18, 2)), N'https://res.cloudinary.com/kopticx/image/upload/v1652542803/205838-1200-auto_ozvc6u.jpg', 20, NULL, NULL)
+GO
+INSERT [dbo].[Producto] ([IdProducto], [NombreProducto], [Descripcion], [Precio], [ImagenUrl1], [Cantidad], [ImagenUrl2], [ImagenUrl3]) VALUES (5, N'
+Lápices de Colores Caja con 24 Piezas + 4 Norma', N'
+Lápices de Colores Caja con 24 Piezas + 4 Largos Redondos Norma', CAST(204.00 AS Decimal(18, 2)), N'https://res.cloudinary.com/kopticx/image/upload/v1652659420/213887-1200-auto_tmawhd.jpg', 40, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Producto] OFF
+GO
 SET IDENTITY_INSERT [dbo].[TipoUsuario] ON 
 GO
 INSERT [dbo].[TipoUsuario] ([IdTipo], [Tipo]) VALUES (1, N'Administrador')
@@ -164,8 +185,10 @@ INSERT [dbo].[Usuario] ([IdUser], [UserName], [Password], [Email], [Name], [User
 GO
 SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
-ALTER TABLE [dbo].[Pedido]  WITH CHECK ADD FOREIGN KEY([IdProducto])
+ALTER TABLE [dbo].[Pedido]  WITH CHECK ADD  CONSTRAINT [FK__Pedido__IdProduc__3F466844] FOREIGN KEY([IdProducto])
 REFERENCES [dbo].[Producto] ([IdProducto])
+GO
+ALTER TABLE [dbo].[Pedido] CHECK CONSTRAINT [FK__Pedido__IdProduc__3F466844]
 GO
 ALTER TABLE [dbo].[Pedido]  WITH CHECK ADD FOREIGN KEY([IdUsuario])
 REFERENCES [dbo].[Usuario] ([IdUser])
