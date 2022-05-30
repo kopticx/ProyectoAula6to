@@ -77,3 +77,5 @@ C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Carrito.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\Principal.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\AgregarProducto.cshtml.g.cs
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\AdministrarInventario.cshtml.g.cs
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\VerTransacciones.cshtml.g.cs
