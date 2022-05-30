@@ -1,2 +1,38 @@
-﻿@{
+﻿@model Contacto
+
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<link rel="stylesheet" href="~/css/customContact.css" asp-append-version="true" />
+
+<form class="form" asp-action="Contacto" style="position: relative; margin-right: 200%;">
+    <h2 class="form_title">Contactanos</h2>
+
+    <div class="form_container">
+
+        <div class="form_group">
+            <input type="text" asp-for="Nombre" class="form_input" placeholder=" "/>
+            <label asp-for="Nombre" class="form_label">Usuario:</label>
+            <span asp-validation-for="Nombre" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="email" asp-for="Correo" class="form_input" placeholder=" "/>
+            <label asp-for="Correo" class="form_label">Correo:</label>
+            <span asp-validation-for="Correo" class="form_line text-danger"></span>
+        </div>
+
+        <div class="form_group">
+            <textarea asp-for="Mensaje" class="form_input form_input-message" placeholder=" "></textarea>
+            <label asp-for="Mensaje" class="form_label">Mensaje:</label>
+            <span asp-validation-for="Mensaje" class="form_line text-danger"></span>
+        </div>
+
+        <input type="submit" class="form_submit" value="Entrar" />
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
 }

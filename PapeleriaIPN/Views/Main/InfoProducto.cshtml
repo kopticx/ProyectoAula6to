@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="~/css/customProduct.css" asp-append-version="true" />
 
-<div class="card-wrapper" style="position: relative; margin-top: -820px; margin-bottom: 50px">
+<div class="card-wrapper" style="position: relative; margin-top: -920px; margin-bottom: 50px">
     <div class="card">
         <!-- card left -->
         <div class="product-imgs">
@@ -36,20 +36,27 @@
                 <h2>Acerca de este producto: </h2>
                 <p>@Model.Descripcion</p>
                 <ul>
-                    <li>Color: <span>Black</span></li>
-                    <li>Available: <span>in stock</span></li>
-                    <li>Category: <span>Shoes</span></li>
-                    <li>Shipping Area: <span>All over the world</span></li>
-                    <li>Shipping Fee: <span>Free</span></li>
+                    <li>Disponible : 
+                        @if (Model.Cantidad > 0) 
+                        { 
+                            <span>En Stock</span>
+                        }
+                        else
+                        {
+                            <span>Sin Stock</span>
+                        }
+                    </li>
+                    <li>Cantidad : <span>@Model.Cantidad</span></li>
+                    <li>Categoria: <span>Papeleria</span></li>
                 </ul>
             </div>
 
             <div class="purchase-info">
                 <input type="number" min="0" value="1">
                 <button type="button" class="btn">
-                    Add to Cart <i class="fas fa-shopping-cart"></i>
+                    Agregar al carrito <i class="bi bi-cart2"></i>
                 </button>
-                <button type="button" class="btn">Compare</button>
+                <button type="button" class="btn">Comprar ahora</button>
             </div>
 
 

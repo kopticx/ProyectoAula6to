@@ -7,6 +7,8 @@ namespace PapeleriaIPN.Controllers
     public class InicioSesion : Controller
     {
         private readonly PapeleriaContext context;
+        public static Usuario usuarioGlobal;
+
 
         public InicioSesion(PapeleriaContext context)
         {
@@ -30,6 +32,8 @@ namespace PapeleriaIPN.Controllers
 
             if (existe)
             {
+                usuarioGlobal = context.Usuarios.Where(x => x.UserName == usuario.UserName).First();
+
                 return RedirectToAction("Principal", "Main");
             }
             else

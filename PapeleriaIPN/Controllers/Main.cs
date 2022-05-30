@@ -34,7 +34,20 @@ namespace PapeleriaIPN.Controllers
             return View(producto);
         }
 
+        [HttpPost]
+        public IActionResult Contacto(Contacto contacto)
+        {
+            SendEmail.Send(contacto.Nombre, contacto.Correo, contacto.Mensaje);
+
+            return View();
+        }
+
         public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        public IActionResult Carrito()
         {
             return View();
         }
