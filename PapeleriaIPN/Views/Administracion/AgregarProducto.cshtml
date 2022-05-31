@@ -1,3 +1,55 @@
-﻿@{
+﻿@model AgregarProducto
+
+@{
     ViewData["Tile"] = "Agregar Productos";
 }
+
+<link rel="stylesheet" href="~/css/customProduct.css" asp-append-version="true" />
+
+<form asp-action="AgregarProducto"> 
+    <div class="card-wrapper" style="position: relative; margin-top: -920px; margin-bottom: 50px">
+    <div class="card">
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <input type="file" class="btn btn-primary" name="url"/>
+                </div>
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            <h2 class="product-title"><input type="text" name="NombreProducto"/></h2>
+            <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.7(21)</span>
+            </div>
+
+            <div class="product-price">
+                <p class="new-price">Precio: <span>$<input type="number" step="0.19" name="Precio"/></span></p>
+            </div>
+
+            <div class="product-detail">
+                <h2>Acerca de este producto: </h2>
+                <p>Descripcion: </p>
+                <p><input type="text" name="Descripcion"/></p>
+                <ul>
+                    <li>Disponible : <span>En Stock</span> </li>
+                    <li>Cantidad : <span><input type="number" name="Cantidad"/></span></li>
+                    <li>Categoria: <span>Papeleria</span></li>
+                </ul>
+            </div>
+
+            <div class="purchase-info">
+                <input type="submit" class="btn btn-primary" value="Agregar"/>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</form>
