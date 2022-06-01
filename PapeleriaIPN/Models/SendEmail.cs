@@ -1,32 +1,65 @@
-﻿using System;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using MailKit.Net.Smtp;
+using Microsoft.Extensions.Configuration;
+using MimeKit;
+using System;
 
 namespace PapeleriaIPN.Models
 {
     public class SendEmail
     {
-        public static void Send(string Nombre, string Correo, string Mensaje)
+        private readonly IConfiguration configuration;
+
+        public SendEmail(IConfiguration configuration)
         {
-            MailMessage correo = new MailMessage();
-            correo.From = new MailAddress("fdzk800@gmail.com", "PAPELERIA IPN", Encoding.UTF8);//Correo de salida
-            correo.To.Add("fdzk800@gmail.com"); //Correo destino?
-            correo.Subject = "Peticion de contacto"; //Asunto
-            correo.Body = String.Format($"<p>Nombre: {Nombre}</p> </br> <p>Correo de destion: {Correo}</p> </br>  <p>Mensaje: {Mensaje}</p>"); //Mensaje del correo
-            correo.IsBodyHtml = true;
-            correo.Priority = MailPriority.High;
-            SmtpClient smtp = new SmtpClient();
-            smtp.UseDefaultCredentials = false;
-            smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
-            smtp.Port = 587; //Puerto de salida
-            smtp.Credentials = new NetworkCredential("fdzk800@gmail.com", "kopticx1020$");//Cuenta de correo
-            ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
-            smtp.EnableSsl = true;//True si el servidor de correo permite ssl
-            smtp.Send(correo);
-            smtp.Dispose();
+            this.configuration = configuration;
+        }
+
+        public void Contacto(string Nombre, string Correo, string Mensaje)
+        {
+            MimeMessage message = new();
+            message.From.Add(new MailboxAddress("Papeleria IPN", configuration["gmailAcount:GmailUser"]));
+            message.To.Add(new MailboxAddress("Destino", configuration["gmailAcount:GmailUser"]));
+            message.Subject = "Peticion de contacto";
+
+            BodyBuilder cuerpo = new();
+
+            cuerpo.HtmlBody = String.Format($"<p>Nombre: {Nombre}</p> </br> <p>Correo de destion: {Correo}</p> </br>  <p>Mensaje: {Mensaje}</p>");
+
+            message.Body = cuerpo.ToMessageBody();
+
+            SmtpClient client = new();
+            client.CheckCertificateRevocation = false;
+            client.Connect(configuration["gmailAcount:Servidor"], Int32.Parse(configuration["gmailAcount:Puerto"]), MailKit.Security.SecureSocketOptions.StartTls);
+            client.Authenticate(configuration["gmailAcount:GmailUser"], configuration["gmailAcount:GmailPassword"]);
+            client.Send(message);
+            client.Disconnect(true);
+        }
+
+        public void RecuperarContraseña(string Correo)
+        {
+            MimeMessage message = new();
+            message.From.Add(new MailboxAddress("Papeleria IPN", configuration["gmailAcount:GmailUser"]));
+            message.To.Add(new MailboxAddress("Destino", Correo));
+            message.Subject = "Codigo de recuperacion";
+
+            BodyBuilder cuerpo = new();
+
+            cuerpo.HtmlBody = String.Format($"<p>Codigo: {GenerarNumero()}</p> </br> <p>: No compartas este codigo con nadie</p>");
+
+            message.Body = cuerpo.ToMessageBody();
+
+            SmtpClient client = new();
+            client.CheckCertificateRevocation = false;
+            client.Connect(configuration["gmailAcount:Servidor"], Int32.Parse(configuration["gmailAcount:Puerto"]), MailKit.Security.SecureSocketOptions.StartTls);
+            client.Authenticate(configuration["gmailAcount:GmailUser"], configuration["gmailAcount:GmailPassword"]);
+            client.Send(message);
+            client.Disconnect(true);
+        }
+
+        public int GenerarNumero()
+        {
+            Random random = new Random();
+            return random.Next(100000, 999999);
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using PapeleriaIPN.Models;
+using System;
 using System.Linq;
 
 namespace PapeleriaIPN.Controllers
@@ -7,10 +9,12 @@ namespace PapeleriaIPN.Controllers
     public class Main : Controller
     {
         private readonly PapeleriaContext context;
+        private readonly IConfiguration configuration;
 
-        public Main(PapeleriaContext context)
+        public Main(PapeleriaContext context, IConfiguration configuration)
         {
             this.context = context;
+            this.configuration = configuration;
         }
 
         public IActionResult Principal()
@@ -37,9 +41,10 @@ namespace PapeleriaIPN.Controllers
         [HttpPost]
         public IActionResult Contacto(Contacto contacto)
         {
-            SendEmail.Send(contacto.Nombre, contacto.Correo, contacto.Mensaje);
+            SendEmail send = new(configuration);
+            send.Contacto(contacto.Nombre, contacto.Correo, contacto.Mensaje);
 
-            return View();
+            return RedirectToAction("Contacto");
         }
 
         public IActionResult Contacto()
@@ -47,9 +52,26 @@ namespace PapeleriaIPN.Controllers
             return View();
         }
 
-        public IActionResult Carrito()
+        [HttpPost]
+        public IActionResult CompraRealizada(CompraRealizada compra)
         {
-            return View();
+            var pedido = new Pedido();
+
+            var producto = context.Productos.Where(x => x.IdProducto == compra.IdProducto).First();
+
+            pedido.IdProducto = compra.IdProducto;
+            pedido.IdUsuario = InicioSesion.usuarioGlobal.IdUser;
+            pedido.Cantidad = compra.Cantidad;
+            pedido.Total = compra.Cantidad * producto.Precio;
+            pedido.FechaPedido = DateTime.Now;
+
+            context.Add(pedido);
+            
+            producto.Cantidad -= pedido.Cantidad;
+            context.Update(producto);
+            context.SaveChanges();
+
+            return View(producto);
         }
     }
 }

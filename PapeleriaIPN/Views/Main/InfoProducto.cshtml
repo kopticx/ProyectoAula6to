@@ -36,9 +36,10 @@
                 <h2>Acerca de este producto: </h2>
                 <p>@Model.Descripcion</p>
                 <ul>
-                    <li>Disponible : 
-                        @if (Model.Cantidad > 0) 
-                        { 
+                    <li>
+                        Disponible :
+                        @if (Model.Cantidad > 0)
+                        {
                             <span>En Stock</span>
                         }
                         else
@@ -52,11 +53,10 @@
             </div>
 
             <div class="purchase-info">
-                <input type="number" min="0" value="1">
-                <button type="button" class="btn">
-                    Agregar al carrito <i class="bi bi-cart2"></i>
-                </button>
-                <button type="button" class="btn">Comprar ahora</button>
+                <form asp-action="CompraRealizada">
+                    <input type="number" min="0" value="1" name="Cantidad">
+                    <button type="submit" class="btn" name="IdProducto" value="@Model.IdProducto">Comprar ahora</button>
+                </form>
             </div>
 
 

@@ -43,10 +43,5 @@ namespace PapeleriaIPN.Controllers
                 return View();
             }
         }
-
-        public IActionResult RecuperarContraseña()
-        {
-            return View();
-        }
     }
 }

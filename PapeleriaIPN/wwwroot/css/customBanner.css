@@ -1,0 +1,63 @@
+﻿.container__banner {
+    margin-top: 80px;
+}
+
+.banner {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    background: #121214;
+    position: relative;
+}
+
+.banner__icon-heart {
+    width: 35%;
+    height: 100%;
+}
+
+#icon_heart {
+    width: 400px;
+    margin-top: -20px;
+    position: relative;
+    filter: drop-shadow(-40px 0px 30px rgba(0,0,0,0.5));
+}
+
+.banner__text {
+    width: 60%;
+    position: relative;
+    padding: 40px;
+}
+
+    .banner__text h2 {
+        color: #fff;
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    .banner__text a {
+        text-decoration: none;
+        display: block;
+        margin-top: 20px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 300ms;
+    }
+
+        .banner__text a:hover {
+            color: #69F1A1;
+        }
+
+.banner__icon-fire {
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+}
+
+#icon_fire {
+    width: 300px;
+    position: relative;
+    margin-top: -30px;
+    opacity: 0.6;
+}

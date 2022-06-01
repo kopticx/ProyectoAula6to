@@ -4,17 +4,37 @@
     ViewData["Title"] = "Home";
 }
 
+<link rel="stylesheet" href="~/css/customBanner.css" asp-append-version="true" />
+
 <div class="text-center" style="color:#fff; position: relative; margin-top: -820px; margin-bottom: 50px">
     <h1 class="display-4">Acerca de nosotros</h1>
-    <h3>Somos una empesa dedicada al rapido manejo y distribucion de productos de papeleria, ademas del cuidado del medio ambiente 
+    <h3>
+        Somos una empesa dedicada al rapido manejo y distribucion de productos de papeleria, ademas del cuidado del medio ambiente
         ya que utilizamos productos hechos 100% de materiables degradables, nuestro objetivo principal es que por cada compra hecha
-        en nuestra sucursal, por mas pequeña que sea la compra, se plante un arbol, ademas de fomentar el cuidado del medio ambiente</h3>
+        en nuestra sucursal, por mas pequeña que sea la compra, se plante un arbol, ademas de fomentar el cuidado del medio ambiente
+    </h3>
 
     <img id="foto" src="~/imagenes/ipn.png" alt="Foto del IPN" />
 </div>
 
 <div class="text-center">
-   <h1 style="color:#000; position: relative;">Productos mas vendidos</h1>
+    <h1 style="color:#000; position: relative;">Productos mas vendidos</h1>
 </div>
 
 <partial name="Producto" model="Model" />
+
+<div class="container__banner">
+
+    <div class="banner">
+        <div class="banner__icon-heart">
+            <img src="~/imagenes/Arbol.png" id="icon_heart" alt="">
+        </div>
+        <div class="banner__icon-fire">
+            <img src="~/imagenes/heart_notify.png" id="icon_fire" alt="">
+        </div>
+        <div class="banner__text">
+            <h2>El planeta es nuestro mas grande tesoro, tenemos que cuidalo, por ello nuestro objetivo es que por cualquier compra que hagas, plantaremos un arbol.</h2>
+        </div>
+    </div>
+
+</div>

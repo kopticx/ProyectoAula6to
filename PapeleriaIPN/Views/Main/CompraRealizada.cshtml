@@ -1,0 +1,46 @@
+﻿@model Producto
+
+@{
+    ViewData["Title"] = "Compra Realizada";
+}
+
+<link rel="stylesheet" href="~/css/customProduct.css" asp-append-version="true" />
+
+<div class="card-wrapper" style="position: relative; margin-top: -920px; margin-bottom: 50px">
+    <div class="card">
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img src="@Model.ImagenUrl1" alt="product image" />
+                </div>
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            <h2 class="product-title">Compra Realizada con exito</h2>
+            <div class="product-rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span>4.7(21)</span>
+            </div>
+
+            <div class="product-price">
+                <p class="new-price">Precio: <span>$@Model.Precio</span></p>
+            </div>
+
+            <div class="product-detail">
+                <h2>Producto: </h2>
+                <p>@Model.NombreProducto</p>
+                <ul>
+                    <li>Cantidad : <span>@Model.Cantidad</span></li>
+                    <li>Categoria: <span>Papeleria</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -74,10 +74,12 @@ C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\InfoProducto.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Productos.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Contacto.cshtml.g.cs
-C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\Carrito.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\Principal.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\AgregarProducto.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\AdministrarInventario.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Administracion\VerTransacciones.cshtml.g.cs
 C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\bin\Debug\net5.0\CloudinaryDotNet.dll
-C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\InicioSesion\RecuperarContraseña.cshtml.g.cs
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\bin\Debug\net5.0\MailKit.dll
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\bin\Debug\net5.0\MimeKit.dll
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Users\kevin\Documents\Proyectos C#\PapeleriaIPN\PapeleriaIPN\obj\Debug\net5.0\Razor\Views\Main\CompraRealizada.cshtml.g.cs

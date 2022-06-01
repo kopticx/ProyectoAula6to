@@ -15,7 +15,7 @@ namespace PapeleriaIPN.Models
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
         public string Descripcion { get; set; }
-        public decimal? Precio { get; set; }
+        public decimal Precio { get; set; }
         public string ImagenUrl1 { get; set; }
         public string ImagenUrl2 { get; set; }
         public string ImagenUrl3 { get; set; }

@@ -17,17 +17,16 @@
     @if (ViewData["Title"] != "Login" && ViewData["Title"] != "Registro")
     {
         <header>
-            <a href="#" class="logo">Papeleria IPN</a>
+            <a asp-controller="Main" asp-action="Principal" class="logo">Papeleria IPN</a>
             <nav class="nav_menu">
                 <ul>
                     <li><a asp-controller="Main" asp-action="Principal">Inicio</a></li>
                     <li><a asp-controller="Main" asp-action="Productos">Productos</a></li>
                     <li><a asp-controller="Main" asp-action="Contacto">Contactanos</a></li>
-                    @*@if(InicioSesion.usuarioGlobal.UserType == 1)
-                    {*@
+                    @if(InicioSesion.usuarioGlobal.UserType == 1)
+                    {
                         <li><a asp-controller="Administracion" asp-action="Principal">Administracion</a></li>
-                    @*}*@
-                    <li><a asp-controller="Main" asp-action="Carrito"><i class="bi bi-cart2"></i></a></li>
+                    }
                 </ul>
             </nav>
         </header>

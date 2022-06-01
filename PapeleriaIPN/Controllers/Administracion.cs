@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PapeleriaIPN.Models;
+using System.Linq;
 
 namespace PapeleriaIPN.Controllers
 {
@@ -47,12 +48,54 @@ namespace PapeleriaIPN.Controllers
 
         public IActionResult VerTransacciones()
         {
-            return View();
+            var pedidoDTO = (from a in context.Pedidos.ToList()
+                             join b in context.Productos.ToList()
+                             on a.IdProducto equals b.IdProducto
+                             join c in context.Usuarios.ToList()
+                             on a.IdUsuario equals c.IdUser
+                             select new PedidoDTO()
+                             {
+                                 IdPedido = a.IdPedido,
+                                 Usuario = c.UserName,
+                                 NombreProducto = b.NombreProducto,
+                                 Cantidad = a.Cantidad,
+                                 Total = a.Total,
+                                 Fecha = a.FechaPedido
+
+                             }).ToList();
+
+            return View(pedidoDTO);
+        }
+
+        [HttpPost]
+        public IActionResult AdministrarInventario(updateProducto productoUpd)
+        {
+            if(productoUpd.Accion == "Update")
+            {
+                var producto = context.Productos.Where(x => x.IdProducto == productoUpd.Id).First();
+                producto.Cantidad = productoUpd.Cantidad;
+                producto.Precio = productoUpd.Precio;
+
+                context.Update(producto);
+                context.SaveChanges();
+            }
+            else
+            {
+                var producto = context.Productos.Where(x => x.IdProducto == productoUpd.Id).First();
+                context.Remove(producto);
+                context.SaveChanges();
+            }
+
+            var productos = context.Productos.ToList();
+
+            return View(productos);
         }
 
         public IActionResult AdministrarInventario()
         {
-            return View();
+            var productos = context.Productos.ToList();
+
+            return View(productos);
         }
     }
 }

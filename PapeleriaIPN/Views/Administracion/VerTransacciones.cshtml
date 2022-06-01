@@ -1,4 +1,32 @@
-﻿@{
+﻿@model IEnumerable<PedidoDTO>
+
+@{
     ViewData["Title"] = "Transacciones de Usuarios";
 }
 
+<table class="table table-dark table-bordered" style="margin-top: -820px; position: relative;">
+    <thead>
+        <tr class="table-info" style="color: #000">
+            <th scope="col">#</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Nombre del Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.IdPedido</td>
+                <td>@producto.Usuario</td>
+                <td>@producto.NombreProducto</td>
+                <td>@producto.Cantidad</td>
+                <td>$@producto.Total</td>
+                <td>@producto.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>
